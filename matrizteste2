@@ -1,0 +1,36 @@
+package matrizes;
+
+import java.util.Random;
+
+public class matrizteste2 {
+
+	public static void main(String[] args) {
+		int teste[][] = new int[5][5];
+		matriz(teste);
+		imprimirmatriz(teste);
+	}
+
+	public static int[][] matriz(int v[][]) {
+		int i, j;
+		Random rand = new Random();
+		for (i = 0; i < v.length; i++) {
+			for (j = 0; j < v[i].length; j++) {
+				v[i][j] = 0;
+				if (i==j) {
+					v[i][j] = rand.nextInt(23);
+				}
+			}
+		}
+		return v;
+	}
+	public static int [][]imprimirmatriz(int v[][]) {
+		int i,j;
+		for (i = 0; i < v.length; i++) {
+			for (j = 0; j < v[i].length; j++) {
+				System.out.println(v[i][j] + " ");
+			}
+		    System.out.println();
+	}
+		return v;
+}
+}
