@@ -1,0 +1,30 @@
+
+public class matrizesteste1 {
+
+	public static void main(String[] args) {
+		int teste[][] = new int[3][3];
+		teste = matriz(teste);
+		teste[2][2] = 20;
+		imprimirMatriz(teste);
+	}
+
+	public static int[][] matriz(int v[][]) {
+		int i, j;
+		for (i = 0; i < v.length; i++) {
+		    for (j = 0; j < v[i].length; j++) {
+		        v[i][j] = 0;
+		    }
+		}
+		return v;
+	}
+
+	public static void imprimirMatriz(int v[][]) {
+		int i, j;
+		for (i = 0; i < v.length; i++) {
+		    for (j = 0; j < v[i].length; j++) {
+		        System.out.print(v[i][j] + " ");
+		    }
+		    System.out.println();
+		}
+	}
+}
