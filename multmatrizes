@@ -1,0 +1,60 @@
+package mafe;
+
+import java.util.Random;
+
+public class devercris {
+
+	public static void main(String[] args) {
+		int i;
+		Random rand = new Random();
+		i = rand.nextInt(20);
+		int matA[][] = new int[i][i];
+		int matB[][] = new int[i][i];
+		int matC[][] = new int[i][i];
+		System.out.println(" MATRIZ A ");
+		System.out.println(" ");
+		matrizgen(matA);
+		mostrar(matA);
+		System.out.println("");
+		System.out.println(" MATRIZ B ");
+		System.out.println(" ");
+		matrizgen(matB);
+		mostrar(matB);
+		System.out.println("");
+		System.out.println("MATRIZ C (Resultado da multiplicação)");
+        multiplicarMatrizes(matA, matB, matC);
+        mostrar(matC);
+	}
+
+	public static int[][] matrizgen(int v[][]) {
+		int i, j;
+		Random rand = new Random();
+		for (i = 0; i < v.length; i++) {
+			for (j = 0; j < v[i].length; j++) {
+				v[i][j] = rand.nextInt(100);
+
+			}
+		}
+		return v;
+	}
+
+	public static void mostrar(int v[][]) {
+		int i, j;
+		for (i = 0; i < v.length; i++) {
+			for (j = 0; j < v[i].length; j++) {
+				System.out.print(v[i][j] + " ");
+			}
+			System.out.println();
+		}
+	}
+
+	public static void multiplicarMatrizes(int[][] matA, int[][] matB, int[][] matC) {
+		for (int i = 0; i < matA.length; i++) {
+			for (int j = 0; j < matB[i].length; j++) {
+				for (int k = 0; k < matA[i].length; k++) {
+					matC[i][j] += matA[i][k] * matB[k][j];
+				}
+			}
+		}
+	}
+}
