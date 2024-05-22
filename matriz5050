@@ -1,0 +1,43 @@
+package matrizes;
+
+import java.util.Random;
+
+public class Matriz5050 {
+
+	public static void main(String[] args) {
+		int matriz[][] = new int[50][50];
+		matrizgen(matriz);
+		verify(matriz);
+		soma(matriz);
+	}
+
+	public static int[][] matrizgen(int v[][]) {
+		int i, j;
+		Random rand = new Random();
+		for (i = 0; i < v.length; i++) {
+			for (j = 0; j < v[i].length; j++) {
+				v[i][j] = rand.nextInt(100);
+			}
+		}
+		return v;
+	}
+	public static void verify(int v[][]) {
+		int i, j;
+		for (i = 0; i < v.length; i++) {
+			for (j = 0; j < v[i].length; j++) {
+					System.out.print(v[i][j] + " ");
+				}
+			System.out.println();
+			}
+		}
+	public static void soma(int v[][]) {
+		int i, j;
+		for (i = 0; i < v.length; i++) {
+			int somaLinha = 0;
+			for (j = 0; j < v[i].length; j++) {
+				somaLinha += v[i][j];
+			}
+			System.out.println("A soma dos elementos da linha " + (i+1) + " é: " + somaLinha);
+		}
+	}
+}
