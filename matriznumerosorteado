@@ -1,0 +1,39 @@
+package matrizes;
+
+import java.util.Random;
+
+public class matriznumsorteado {
+
+	public static void main(String[] args) {
+		int matriz[][] = new int[10][10];
+		matrizgen(matriz);
+		imprimirmatriz(matriz);
+	}
+
+	public static int[][] matrizgen(int v[][]) {
+		int i, j;
+		Random rand = new Random();
+		for (i = 0; i < v.length; i++) {
+			for (j = 0; j < v[i].length; j++) {
+				v[i][j] = rand.nextInt(100);
+			}
+		}
+		return v;
+	}
+
+	public static void imprimirmatriz(int v[][]) {
+		int i, j, aleatorio, cont = 0;
+		Random rand = new Random();
+		aleatorio = rand.nextInt(100);
+		for (i = 0; i < v.length; i++) {
+			for (j = 0; j < v[i].length; j++) {
+				System.out.print(v[i][j] + " "); 
+				if (v[i][j] == aleatorio) {
+					cont = cont + 1;
+				}
+			}
+			System.out.println();
+		}
+		System.out.println("o número escollhido foi " +aleatorio+ " , aparecendo " +cont+ " vezes.");
+	}
+}
