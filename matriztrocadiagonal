@@ -1,0 +1,58 @@
+package matrizes;
+
+import java.util.Random;
+
+public class matrizmaiordiagonal {
+
+	public static void main(String[] args) {
+		int matriz[][] = new int[10][10];
+		matrizgen(matriz);
+		System.out.println(" ");
+		System.out.println(" MATRIZ ORIGINAL: ");
+		escrevermatriz(matriz);
+		verify(matriz);
+		System.out.println(" ");
+		System.out.println(" MATRIZ PÓS TROCA: ");
+		escrevermatriz(matriz);
+
+	}
+
+	public static int[][] matrizgen(int[][] v) {
+		int i, j;
+		Random rand = new Random();
+		for (i = 0; i < v.length; i++) {
+			for (j = 0; j < v[i].length; j++) {
+				v[i][j] = rand.nextInt(100);
+			}
+		}
+		return v;
+	}
+
+	public static void escrevermatriz(int[][] v) {
+		int i, j;
+		for (i = 0; i < v.length; i++) {
+			for (j = 0; j < v[i].length; j++) {
+				System.out.print(v[i][j] + " ");
+			}
+			System.out.println();
+		}
+
+	}
+
+	public static void verify(int[][] v) {
+		for (int i = 0; i < v.length; i++) {
+			int maior = v[i][0];
+			int indiceMaior = 0;
+
+			for (int j = 1; j < v[i].length; j++) {
+				if (v[i][j] > maior) {
+					maior = v[i][j];
+					indiceMaior = j;
+				}
+			}
+			int temp = v[i][i];
+			v[i][i] = maior;
+			v[i][indiceMaior] = temp;
+
+		}
+	}
